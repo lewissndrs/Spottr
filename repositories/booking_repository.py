@@ -3,6 +3,9 @@ from models.booking import Booking
 from models.activity import Activity
 from models.member import Member
 
+import repositories.member_repository as member_repository
+import repositories.activity_repository as activity_repository
+
 def save(booking):
     sql = 'INSERT INTO bookings (member_id,activity_id,note) VALUES (%s,%s,%s) RETURNING *'
     values = [booking.member.id,booking.activity.id,booking.note]
@@ -16,7 +19,9 @@ def select_all():
     sql = 'SELECT * FROM bookings'
     results = run_sql(sql)
     for row in results:
-        booking = Booking(row['member_id'],row['activity_id'],row['note'])
+        member = member_repository.select(row['member_id'])
+        activity = activity_repository.select(row['activity_id'])
+        booking = Booking(member,activity,row['note'],row['id'])
         bookings.append(booking)
     return bookings
 
@@ -24,7 +29,9 @@ def select(id):
     sql = 'SELECT * FROM bookings WHERE id = %s'
     values = [id]
     results = run_sql(sql,values)[0]
-    booking = Booking(results['member_id'],results['activity_id'],results['note'],results['id'])
+    member = member_repository.select(results['member_id'])
+    activity = activity_repository.select(results['activity_id'])
+    booking = Booking(member,activity,results['note'],results['id'])
     return booking
 
 def delete_all():

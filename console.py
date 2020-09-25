@@ -1,4 +1,5 @@
 import pdb
+
 from models.member import Member
 from models.trainer import Trainer
 from models.booking import Booking
@@ -12,6 +13,7 @@ import repositories.trainer_repository as trainer_repository
 activity_repository.delete_all()
 member_repository.delete_all()
 trainer_repository.delete_all()
+booking_repository.delete_all()
 
 trainer1 = Trainer('Tron')
 trainer_repository.save(trainer1)
@@ -19,31 +21,31 @@ trainer_repository.save(trainer1)
 swimclass = Activity('Swim class','2020-01-01','18:00',trainer1)
 activity_repository.save(swimclass)
 
-weightsclass = Activity('Weights class','2020-04-16','12:00',trainer1)
-activity_repository.save(weightsclass)
+weightclass = Activity('Weights class','2020-04-16','12:00',trainer1)
+activity_repository.save(weightclass)
 
-activity_repository.delete(weightsclass.id)
+member1 = Member('Thom')
+member_repository.save(member1)
 
-activities = activity_repository.select_all()
+booking1 = Booking(member1,swimclass)
+booking_repository.save(booking1)
 
-for activity in activities:
-    print(activity.__dict__)
+booking2 = Booking(member1, weightclass,'I might be late. Sorry!')
+booking_repository.save(booking2)
 
-# trainer1 = Trainer('Tom')
-# trainer2 = Trainer('Grace')
+bookings = booking_repository.select_all()
 
-# trainer_repository.save(trainer1)
-# trainer_repository.save(trainer2)
+for booking in bookings:
+    print(booking.__dict__)
 
-# member_repository.delete(member1.id)
-# trainer_repository.delete(trainer1.id)
+booking_repository.delete(booking1.id)
 
-# trainer2.active = False
-# trainer_repository.update(trainer2)
+booking2.note = 'Actually no, nevermind. It cool'
+booking_repository.update(booking2)
 
-# trainers = trainer_repository.select_all()
+bookings = booking_repository.select_all()
 
-# for everyone in trainers:
-#     print(everyone.__dict__)
+for booking in bookings:
+    print(booking.member.name)
 
 pdb.set_trace()
