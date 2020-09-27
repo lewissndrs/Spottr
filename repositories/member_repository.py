@@ -1,6 +1,8 @@
 from db.run_sql import run_sql
 from models.member import Member
 
+import repositories.activity_repository as activity_repository
+
 def save(member):
     sql = 'INSERT INTO members (name, active) VALUES (%s,%s) RETURNING *'
     values = [member.name,member.active]
@@ -38,3 +40,13 @@ def update(member):
     sql = 'UPDATE members SET (name, active) = (%s,%s) WHERE id = %s'
     values = [member.name,member.active,member.id]
     run_sql(sql,values)
+
+def activities(id):
+    activities = []
+    sql = 'SELECT activity_id FROM bookings WHERE member_id = %s'
+    values = [id]
+    results = run_sql(sql,values)
+    for row in results:
+        activity = activity_repository.select(row['activity_id'])
+        activities.append(activity)
+    return activities

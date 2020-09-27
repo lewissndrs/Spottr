@@ -14,8 +14,8 @@ def index():
 @members_blueprint.route("/members/<id>")
 def show_member(id):
     member = member_repository.select(id)
-    # get members activities and then pass them on
-    return render_template("/members/show.html",member=member)
+    activities = member_repository.activities(id)
+    return render_template("/members/show.html",member=member,activities=activities)
 
 # NEW
 @members_blueprint.route("/members/new")
