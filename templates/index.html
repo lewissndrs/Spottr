@@ -6,7 +6,7 @@
 
 {% for activity in activities %}
     <p>{{ activity.name }} {{ activity.date }} {{ activity.time }}</p>
-    <a href="/activities/{{ activity.id }}/show">View roster</a> 
+    <a href="/activities/{{ activity.id }}">View roster</a> 
     <a href="/bookings/new">Add member</a>
 {% endfor %}
 

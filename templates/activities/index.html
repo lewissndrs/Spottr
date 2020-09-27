@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <a href="/activities/new">Add new activity</a>
+
+    <h2>All activities</h2>
+
+    {% for activity in activities %}
+        <p>name: {{ activity.name }} date: {{ activity.date }} {{ activity.time }} trainer: {{ activity.trainer.name }} activity id: {{ activity.id }}</p>
+        
+    {% endfor %}
+
+{% endblock %}

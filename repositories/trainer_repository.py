@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.trainer import Trainer
+from models.activity import Activity
 
 def save(trainer):
     sql = 'INSERT INTO trainers (name, active) VALUES (%s,%s) RETURNING *'
@@ -38,3 +39,14 @@ def update(trainer):
     sql = 'UPDATE trainers SET (name, active) = (%s,%s) WHERE id = %s'
     values = [trainer.name,trainer.active,trainer.id]
     run_sql(sql,values)
+
+def activities(id):
+    activities = []
+    sql = 'SELECT * FROM activities WHERE trainer_id = %s'
+    values = [id]
+    results = run_sql(sql,values)
+    for row in results:
+        trainer = select(id)
+        activity = Activity(row['name'],row['date'],row['time'],trainer,row['id'])
+        activities.append(activity)
+    return activities

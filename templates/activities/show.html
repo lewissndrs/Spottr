@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h2>Roster for {{ activity.name }} on {{ activity.date }}</h2>
+
+    <p>Time: {{ activity.time }}</p>
+    <p>Trainer: <a href="/trainers/{{ activity.trainer.id }}">{{ activity.trainer.name }}</a> </p>
+
+    <h3>class</h3>
+    {% for booking in bookings %}
+        <p>{{ booking.member.name }} {{ booking.note }}</p>
+    {% endfor %}
+
+{% endblock %}

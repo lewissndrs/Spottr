@@ -10,6 +10,13 @@ def trainers():
     trainers = trainer_repository.select_all()
     return render_template("trainers/index.html",trainers=trainers)
 
+# SHOW
+@trainers_blueprint.route("/trainers/<id>")
+def show_trainer(id):
+    trainer = trainer_repository.select(id)
+    activities = trainer_repository.activities(id)
+    return render_template("trainers/show.html",trainer=trainer,activities=activities)
+
 # NEW
 @trainers_blueprint.route("/trainers/new")
 def new_trainer():
