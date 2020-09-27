@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <form action="/trainers/{{ trainer.id }}" method='POST'>
+
+        <label for="name">Trainer name: </label>
+        <input type="text" name="name" value="{{ trainer.name }}">
+        <label for="active">Active: </label>
+        <select name="active" id="active">
+            <option value="{{trainer.active}}" selected>{{trainer.active}}</option>
+            <option value="{{ not trainer.active}}">{{ not trainer.active }}</option>
+        </select>
+        <input type="submit">
+    </form>
+
+{% endblock  %}

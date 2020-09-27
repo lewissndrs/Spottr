@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form action="/members/{{member.id}}" method='POST'>
+        
+        <label for="name">Member name: </label>
+        <input type="text" name='name' value='{{ member.name }}'>
+        <label for="active">Active: </label>
+        <select name="active" id="active">
+            <option value="{{member.active}}" selected>{{member.active}}</option>
+            <option value="{{ not member.active}}">{{ not member.active }}</option>
+        </select>
+        <input type="submit">
+
+    </form>
+    
+{% endblock %}

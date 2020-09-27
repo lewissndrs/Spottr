@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+<h2>Upcoming Activites</h2>
+
+{% for activity in activities %}
+    <p>{{ activity.name }} {{ activity.date }} {{ activity.time }}</p>
+    <a href="/activities/{{ activity.id }}/show">View roster</a> 
+    <a href="/bookings/new">Add member</a>
+{% endfor %}
+
+{% endblock  %}
+

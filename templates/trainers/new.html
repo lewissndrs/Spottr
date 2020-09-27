@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h2>Trainers</h2>
+
+    <form action="/trainers" method='POST'>
+        
+        <label for="name">Trainer name</label>
+        <input type="text" name="name">
+        <input type="submit">
+
+    </form>
+
+{% endblock %}
