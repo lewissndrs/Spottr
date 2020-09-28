@@ -11,7 +11,7 @@
     {% for activity in activities %}
     <div class='card'>
         <p>name: {{ activity.name }} date: {{ activity.date }} {{ activity.time }} trainer: {{ activity.trainer.name }} activity id: {{ activity.id }}</p>
-        <form action="/activities/{{ activity.id }}/edit">
+        <form action="/activities/{{ activity.id }}/edit" class='push'>
             <button>Edit Activity</button>
         </form>
     </div>

@@ -11,13 +11,15 @@
        
         <p>name: {{ trainer.name }} id: {{ trainer.id }} active: {{ trainer.active }}</p>
         
-        <form action="/trainers/{{ trainer.id }}/edit">
+        
+        <form action="/trainers/{{ trainer.id }}/edit" class='push'>
             <input type="submit" value='Edit trainer' class='link'>
         </form>
-        
+
         <form action="/trainers/{{ trainer.id }}/delete" method="POST">
             <input type="submit" value="Delete trainer" class='link'>
         </form>
+        
      
         </div>
 

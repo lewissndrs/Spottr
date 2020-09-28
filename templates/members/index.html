@@ -9,7 +9,7 @@
     <div class='card'>
         <p>Name: {{ member.name }} Active: {{ member.active }}</p>
 
-        <form action="/members/{{ member.id }}">
+        <form action="/members/{{ member.id }}" class='push'>
             <input type="submit" value="View member" class='link'>
         </form>
 

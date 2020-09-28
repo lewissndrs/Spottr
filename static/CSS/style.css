@@ -91,6 +91,7 @@ header > nav > ul > li > a {
     color: black;
     display: flex;
     align-items: center;
+    justify-content: start;
     flex-wrap: wrap;
     box-shadow: 3px 3px 3px rgb(182, 182, 182);
 }
@@ -117,12 +118,16 @@ button,.link {
     text-decoration: none;
     height: 45px;
     animation: background-color 0.5s;
+    justify-self: end;
 }
 
 button:hover,.link:hover {
     background-color: rgb(53, 117, 235);
 }
 
+.push {
+    margin-left: auto;
+}
 
 #roster-body {
     background-color: white;

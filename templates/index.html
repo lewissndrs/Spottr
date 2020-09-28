@@ -8,7 +8,7 @@
     {% for activity in activities %}
     <div class='card'>
         <p>{{ activity.name }} {{ activity.date }} {{ activity.time }}</p>
-        <form action="/activities/{{ activity.id }}">
+        <form action="/activities/{{ activity.id }}" class='push'>
             <input type="submit" value='View roster' class='link'>
         </form>
     </div>
