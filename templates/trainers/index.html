@@ -4,19 +4,25 @@
 
     <h2>Trainers</h2>
 
+    <div class='card_cont'>
     {% for trainer in trainers %}
     
         <div class='card'>
        
         <p>name: {{ trainer.name }} id: {{ trainer.id }} active: {{ trainer.active }}</p>
-        <a href="/trainers/{{ trainer.id }}/edit">Edit trainer</a>
+        
+        <form action="/trainers/{{ trainer.id }}/edit">
+            <input type="submit" value='Edit trainer' class='link'>
+        </form>
+        
         <form action="/trainers/{{ trainer.id }}/delete" method="POST">
-            <input type="submit" value="Delete trainer">
+            <input type="submit" value="Delete trainer" class='link'>
         </form>
      
         </div>
 
     {% endfor %}
+    </div>
 
     <p></p>
     <a href="/trainers/new" class='add_new'>+ Add new trainer</a>

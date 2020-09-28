@@ -2,10 +2,12 @@
 
 {% block content %}
     
-    <a href="/activities/new" class='add_new'>+ Add new activity</a>
+    
 
     <h2>All Activities</h2>
 
+   
+    <div class='card_cont'>
     {% for activity in activities %}
     <div class='card'>
         <p>name: {{ activity.name }} date: {{ activity.date }} {{ activity.time }} trainer: {{ activity.trainer.name }} activity id: {{ activity.id }}</p>
@@ -14,5 +16,8 @@
         </form>
     </div>
     {% endfor %}
+    </div>
+    
+    <a href="/activities/new" class='add_new'>+ Add new activity</a>
 
 {% endblock %}

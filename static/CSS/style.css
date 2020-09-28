@@ -58,20 +58,29 @@ header > nav > ul > li > a {
     padding: 2%;
     width: 75%;
     margin: auto;
+    padding-bottom: 30px;
 }
 
 .add_new {
-    position: fixed;
-    bottom: 5px;
+    position: sticky;
+    bottom: 10px;
+    margin-left: 5px;
     padding: 20px;
     background-color: cornflowerblue;
     text-decoration: none;
     color: white;
     border-radius: 999em;
+    transition: all 0.5s;
+}
+
+.add_new:hover {
+    background-color: rgb(53, 117, 235);
+    transform: scale(1.1);
 }
 
 .card_cont {
     display: grid;
+    padding-bottom: 25px;
 }
 
 .card {
@@ -80,8 +89,10 @@ header > nav > ul > li > a {
     padding: 5px 10px;
     border-radius: 5px;
     color: black;
-    
-    
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 3px 3px 3px rgb(182, 182, 182);
 }
 
 footer {
@@ -90,17 +101,11 @@ footer {
     bottom: 0;
 }
 
-button {
-    background-color: cornflowerblue;
-    color: white;
-    border: none;
-    font-family: 'Quicksand',sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 10px;
+footer > h6 {
+    margin-right: 15px;
 }
 
-.link {
+button,.link {
     background-color: cornflowerblue;
     color: white;
     border: none;
@@ -108,8 +113,16 @@ button {
     font-size: 16px;
     cursor: pointer;
     padding: 10px;
-    margin:1px;
+    margin: 1px;
+    text-decoration: none;
+    height: 45px;
+    animation: background-color 0.5s;
 }
+
+button:hover,.link:hover {
+    background-color: rgb(53, 117, 235);
+}
+
 
 #roster-body {
     background-color: white;
@@ -124,13 +137,9 @@ button {
     display: grid;
 }
 
-/* #book-form {
-    display: grid;
-    grid-template-columns: auto,auto,auto,auto;
-    grid-template-rows: auto, auto, auto;
-} */
 
 input,select {
     padding: 5px;
     margin: 3px;
 }
+

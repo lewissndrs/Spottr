@@ -8,7 +8,9 @@
     {% for activity in activities %}
     <div class='card'>
         <p>{{ activity.name }} {{ activity.date }} {{ activity.time }}</p>
-        <a href="/activities/{{ activity.id }}" class='link'>View roster</a> 
+        <form action="/activities/{{ activity.id }}">
+            <input type="submit" value='View roster' class='link'>
+        </form>
     </div>
     {% endfor %}
 </div>
