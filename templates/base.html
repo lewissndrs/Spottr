@@ -4,28 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spottr</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Dashboard</a>
-            </li>
-            <li>
-                <a href="/activities">Activities</a>
-            </li>
-            <li>
-                <a href="/members">Members</a>
-            </li>
-            <li>
-                <a href="/trainers">Trainers</a>
-            </li>
-        </ul>
-    </nav>
+    <header>
+        <h1 id='logo'>Spottr</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Dashboard</a>
+                </li>
+                <li>
+                    <a href="/activities">Activities</a>
+                </li>
+                <li>
+                    <a href="/members">Members</a>
+                </li>
+                <li>
+                    <a href="/trainers">Trainers</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
+    <div class='content-box'>
     {% block content %}
 
     {% endblock %}
+    </div>
 
+    <footer> <h6>&copy;Spottr 2020</h6></footer>
 </body>
 </html>

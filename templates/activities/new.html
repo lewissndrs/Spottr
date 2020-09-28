@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    <form action="/activities" method='POST'>
+  
+<h2>Add a new activity</h2>
+
+    <form action="/activities" method='POST' class='form-new'>
     
         <label for="name">Activity Name</label>
         <input type="text" name="name">

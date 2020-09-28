@@ -4,11 +4,16 @@
 
 <h2>Upcoming Activites</h2>
 
-{% for activity in activities %}
-    <p>{{ activity.name }} {{ activity.date }} {{ activity.time }}</p>
-    <a href="/activities/{{ activity.id }}">View roster</a> 
-    <a href="/bookings/new">Add member</a>
-{% endfor %}
+<div class='card_cont'>
+    {% for activity in activities %}
+    <div class='card'>
+        <p>{{ activity.name }} {{ activity.date }} {{ activity.time }}</p>
+        <a href="/activities/{{ activity.id }}" class='link'>View roster</a> 
+    </div>
+    {% endfor %}
+</div>
+
+<a href="/bookings/new" class='add_new'>+ Make a new booking</a>
 
 {% endblock  %}
 

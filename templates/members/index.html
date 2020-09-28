@@ -2,19 +2,21 @@
 
 {% block content %}
     
-    <h2>Members: </h2>
+    <h2>Members </h2>
 
     {% for member in members %}
+    <div class='card'>
         <p>Name: {{ member.name }} Active: {{ member.active }}</p>
-        <a href="/members/{{ member.id }}">View member</a>
+        <a href="/members/{{ member.id }}" class='link'>View member</a>
         <form action="/members/{{member.id}}/delete" method='POST'>
-            <input type="submit" value="Delete member">
+            <input type="submit" value="Delete member" class='link'>
         </form>
         <form action="/members/{{member.id}}/edit" method='GET'>
-            <input type="submit" value="Edit member">
+            <input type="submit" value="Edit member" class='link'>
         </form>
+    </div>
     {% endfor %}
 
-    <p><a href="/members/new">Add a new member</a></p>
+    <a href="/members/new" class='add_new'>+ Add a new member</a>
 
 {% endblock %}

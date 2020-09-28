@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2>Book a member into an activity</h2>
-    <form action="/bookings" method='POST'>
+    <form action="/bookings" method='POST' class='form-new'>
     
         <label for="member_id">Member: </label>
         <select name="member_id">
@@ -25,6 +25,7 @@
         <input type="text" name='note'>
 
         <input type="submit">
+
     </form>
 
 {% endblock %}

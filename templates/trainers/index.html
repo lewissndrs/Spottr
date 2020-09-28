@@ -6,17 +6,19 @@
 
     {% for trainer in trainers %}
     
+        <div class='card'>
        
         <p>name: {{ trainer.name }} id: {{ trainer.id }} active: {{ trainer.active }}</p>
         <a href="/trainers/{{ trainer.id }}/edit">Edit trainer</a>
         <form action="/trainers/{{ trainer.id }}/delete" method="POST">
             <input type="submit" value="Delete trainer">
         </form>
-        
+     
+        </div>
 
     {% endfor %}
 
     <p></p>
-    <a href="/trainers/new">Add new trainer</a>
+    <a href="/trainers/new" class='add_new'>+ Add new trainer</a>
    
 {% endblock %}
