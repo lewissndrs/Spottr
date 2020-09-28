@@ -8,7 +8,9 @@
 
     {% for activity in activities %}
         <p>name: {{ activity.name }} date: {{ activity.date }} {{ activity.time }} trainer: {{ activity.trainer.name }} activity id: {{ activity.id }}</p>
-        
+        <form action="/activities/{{ activity.id }}/edit">
+            <button>Edit Activity</button>
+        </form>
     {% endfor %}
 
 {% endblock %}

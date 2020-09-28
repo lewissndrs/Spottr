@@ -16,7 +16,9 @@
         <label for="trainer">Trainer</label>
         <select name="trainer">
         {% for trainer in trainers %}
+            {% if trainer.active %}
             <option value="{{ trainer.id }}">{{ trainer.name }}</option>
+            {% endif %}
         {% endfor %}
         </select>
 

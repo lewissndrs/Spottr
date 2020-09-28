@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <form action="/bookings/{{ booking.id }}" method="POST">
+
+        <label for="activity_id">Activity</label>
+        <select name="activity_id">
+            {% for booking in bookings %}
+                <option value="{{ activity.id }}" {% if activity.id == booking.activity.id %}
+                    selected
+                {% endif %}>{{ activity.name }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="member_id">
+            {% for booking in bookings %}
+                <option value="{{ member.id }}" {% if member.id == booking.member.id %}
+                    selected
+                {% endif %}>{{ member.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="note">Add a note: </label>
+        <input type="text" name="name">
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

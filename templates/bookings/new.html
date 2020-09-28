@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Book a member into an activity</h2>
+    <form action="/bookings" method='POST'>
+    
+        <label for="member_id">Member: </label>
+        <select name="member_id">
+            {% for member in members %}
+            {% if member.active %}
+            <option value="{{ member.id }}">{{ member.name }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+
+        <label for="activity_id">Activity: </label>
+        <select name="activity_id" >
+            {% for activity in activities %}
+                <option value="{{ activity.id }}">{{ activity.name }} {{ activity.date }} {{ activity.time }}</option>
+            {% endfor %}
+
+        </select>
+
+        <label for="note">Add a note: </label>
+        <input type="text" name='note'>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

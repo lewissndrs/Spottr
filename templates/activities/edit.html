@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <form action="/activities/{{ activity.id }}", method='POST'>
+
+        <label for="name">Activity: </label>
+        <input type="text" name="name" value="{{ activity.name }}">
+
+        <label for="date">Date: </label>
+        <input type="text" name="date" value="{{ activity.date }}">
+
+        <label for="time">Time: </label>
+        <input type="text" name='time' value="{{ activity.time }}">
+
+        <label for="trainer_id">Trainer: </label>
+        <select name="trainer_id" >
+            {% for trainer in trainers %}
+                <option value="{{ trainer.id }}">{{ trainer.name }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit">
+
+    </form>
+
+{% endblock %}

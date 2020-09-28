@@ -35,3 +35,27 @@ def create_activity():
     activity = Activity(name,date,time,trainer)
     activity_repository.save(activity)
     return redirect("/activities")
+
+# EDIT
+@activities_blueprint.route("/activities/<id>/edit")
+def edit_activity(id):
+    activity = activity_repository.select(id)
+    trainers = trainer_repository.select_all()
+    return render_template("/activities/edit.html",activity=activity,trainers=trainers)
+
+# UPDATE
+@activities_blueprint.route("/activities/<id>",methods=['POST'])
+def update_activity(id):
+    name = request.form['name']
+    date = request.form['date']
+    time = request.form['time']
+    trainer = trainer_repository.select(request.form['trainer_id'])
+    activity = Activity(name,date,time,trainer,id)
+    activity_repository.update(activity)
+    return redirect("/activities")
+
+# DELETE
+@activities_blueprint.route("/activities/<id>/delete",methods=['POST'])
+def delete_activity(id):
+    activity_repository.delete(id)
+    return redirect("/activities")

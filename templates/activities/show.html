@@ -10,6 +10,9 @@
     <h3>class</h3>
     {% for booking in bookings %}
         <p>{{ booking.member.name }} {{ booking.note }}</p>
+        <form action="/bookings/{{ booking.id }}/delete" method='POST'>
+            <button>Delete</button>
+        </form>
     {% endfor %}
 
 {% endblock %}
