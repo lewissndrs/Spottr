@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS bookings;
 DROP TABLE IF EXISTS activities;
 DROP TABLE IF EXISTS members;
@@ -22,7 +23,8 @@ CREATE TABLE activities(
     name VARCHAR(255),
     date VARCHAR(255),
     time VARCHAR(255),
-    trainer_id INT REFERENCES trainers(id)
+    trainer_id INT REFERENCES trainers(id),
+    capacity INT
 );
 
 CREATE TABLE bookings(

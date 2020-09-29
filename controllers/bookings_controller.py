@@ -27,9 +27,15 @@ def create_booking():
     member = member_repository.select(member_id)
     note = request.form['note']
     booking = Booking(member,activity,note)
-    booking_repository.save(booking)
-    return redirect("/activities/"+activity_id)
 
+    booked = activity_repository.bookings_amount(activity_id)
+    if booked < activity.capacity:
+        booking_repository.save(booking)
+        return redirect("/activities/"+activity_id)
+    message = 'Sorry, this class is fully booked'
+    return render_template('bookings/error.html')
+
+    
 # EDIT
 
 @bookings_blueprint.route("/bookings/<id>/edit")

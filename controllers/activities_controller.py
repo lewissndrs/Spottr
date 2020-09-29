@@ -14,7 +14,7 @@ def activities():
 
 # SHOW
 @activities_blueprint.route("/activities/<id>")
-def show_activity(id):
+def show_activity(id,message=None):
     activity = activity_repository.select(id)
     bookings = activity_repository.bookings(id)
     return render_template("/activities/show.html",activity=activity,bookings=bookings)
@@ -32,7 +32,8 @@ def create_activity():
     date = request.form['date']
     time = request.form['time']
     trainer = trainer_repository.select(request.form['trainer'])
-    activity = Activity(name,date,time,trainer)
+    capacity = request.form['capacity']
+    activity = Activity(name,date,time,trainer,capacity)
     activity_repository.save(activity)
     return redirect("/activities")
 
@@ -49,8 +50,9 @@ def update_activity(id):
     name = request.form['name']
     date = request.form['date']
     time = request.form['time']
+    capacity = request.form['capacity']
     trainer = trainer_repository.select(request.form['trainer_id'])
-    activity = Activity(name,date,time,trainer,id)
+    activity = Activity(name,date,time,trainer,capacity,id)
     activity_repository.update(activity)
     return redirect("/activities")
 

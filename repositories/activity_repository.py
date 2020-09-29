@@ -7,8 +7,8 @@ import repositories.activity_repository as activity_repository
 import repositories.member_repository as member_repository
 
 def save(activity):
-    sql = 'INSERT INTO activities (name,date,time,trainer_id) VALUES (%s,%s,%s,%s) RETURNING *'
-    values = [activity.name, activity.date, activity.time, activity.trainer.id]
+    sql = 'INSERT INTO activities (name,date,time,trainer_id,capacity) VALUES (%s,%s,%s,%s,%s) RETURNING *'
+    values = [activity.name, activity.date, activity.time, activity.trainer.id, activity.capacity]
     results = run_sql(sql,values)
     id = results[0]['id']
     activity.id = id
@@ -20,7 +20,7 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         trainer = trainer_repository.select(row['trainer_id'])
-        activity = Activity(row['name'],row['date'],row['time'],trainer,row['id'])
+        activity = Activity(row['name'],row['date'],row['time'],trainer,row['capacity'],row['id'])
         activities.append(activity)
     return activities
 
@@ -29,7 +29,7 @@ def select(id):
     values = [id]
     results = run_sql(sql,values)[0]
     trainer = trainer_repository.select(results['trainer_id'])
-    activity = Activity(results['name'],results['date'],results['time'],trainer,results['id'])
+    activity = Activity(results['name'],results['date'],results['time'],trainer,results['capacity'],results['id'])
     return activity
 
 def delete_all():
@@ -42,8 +42,8 @@ def delete(id):
     run_sql(sql,values)
 
 def update(activity):
-    sql = 'UPDATE activities SET (name, date, time, trainer_id) = (%s,%s,%s,%s) WHERE id = %s'
-    values = [activity.name, activity.date, activity.time, activity.trainer.id, activity.id]
+    sql = 'UPDATE activities SET (name, date, time, trainer_id, capacity) = (%s,%s,%s,%s,%s) WHERE id = %s'
+    values = [activity.name, activity.date, activity.time, activity.trainer.id, activity.capacity, activity.id]
     run_sql(sql,values)
 
 def bookings(id):
@@ -57,3 +57,8 @@ def bookings(id):
         booking = Booking(member,activity,row['note'],row['id'])
         bookings.append(booking)
     return bookings
+
+def bookings_amount(id):
+    results=bookings(id)
+    amount_bookings = len(results)
+    return amount_bookings

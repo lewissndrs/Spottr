@@ -18,10 +18,10 @@ booking_repository.delete_all()
 trainer1 = Trainer('Tron')
 trainer_repository.save(trainer1)
 
-swimclass = Activity('Swim class','2020-01-01','18:00',trainer1)
+swimclass = Activity('Swim class','2020-01-01','18:00',trainer1,30)
 activity_repository.save(swimclass)
 
-weightclass = Activity('Weights class','2020-04-16','12:00',trainer1)
+weightclass = Activity('Weights class','2020-04-16','12:00',trainer1,20)
 activity_repository.save(weightclass)
 
 member1 = Member('Thom')
