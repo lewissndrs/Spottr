@@ -28,7 +28,34 @@ def create_booking():
     note = request.form['note']
     booking = Booking(member,activity,note)
     booking_repository.save(booking)
-    return redirect("/")
+    return redirect("/activities/"+activity_id)
+
+# EDIT
+
+@bookings_blueprint.route("/bookings/<id>/edit")
+def edit_booking(id):
+    booking = booking_repository.select(id)
+    activities = activity_repository.select_all()
+    members = member_repository.select_all()
+    return render_template("/bookings/edit.html",booking=booking,activities=activities,members=members)
+
+# UPDATE
+
+@bookings_blueprint.route("/bookings/<id>",methods=['POST'])
+def update_booking(id):
+    member_id = request.form['member_id']
+    member = member_repository.select(member_id)
+
+    activity_id = request.form['activity_id']
+    activity = activity_repository.select(activity_id)
+
+    note = request.form['note']
+
+    booking = Booking(member,activity,note,id)
+
+    booking_repository.update(booking)
+
+    return redirect('/activities/'+activity_id)
 
 # DELETE
 

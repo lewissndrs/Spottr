@@ -125,9 +125,7 @@ button:hover,.link:hover {
     background-color: rgb(53, 117, 235);
 }
 
-.push {
-    margin-left: auto;
-}
+
 
 #roster-body {
     background-color: white;
@@ -148,3 +146,18 @@ input,select {
     margin: 3px;
 }
 
+.button-box {
+    display: flex;
+    margin-left: auto;
+}
+
+@media screen and (max-width:600px) {
+
+    body{
+        font-size: 18px;
+    }
+
+    .content-box{
+        width: 90%;
+    }
+}

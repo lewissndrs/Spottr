@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    <form action="/trainers/{{ trainer.id }}" method='POST'>
+
+    <h2>Edit Trainer</h2>
+
+    <form action="/trainers/{{ trainer.id }}" method='POST' class='form-new'>
 
         <label for="name">Trainer name: </label>
         <input type="text" name="name" value="{{ trainer.name }}">

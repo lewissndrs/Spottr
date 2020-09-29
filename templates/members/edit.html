@@ -2,7 +2,9 @@
 
 {% block content %}
 
-    <form action="/members/{{member.id}}" method='POST'>
+<h2>Edit Member</h2>
+
+    <form action="/members/{{member.id}}" method='POST' class='form-new'>
         
         <label for="name">Member name: </label>
         <input type="text" name='name' value='{{ member.name }}'>

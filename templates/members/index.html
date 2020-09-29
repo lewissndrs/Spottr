@@ -9,17 +9,19 @@
     <div class='card'>
         <p>Name: {{ member.name }} Active: {{ member.active }}</p>
 
-        <form action="/members/{{ member.id }}" class='push'>
-            <input type="submit" value="View member" class='link'>
-        </form>
+        <div class='button-box' class='push'>
+            <form action="/members/{{ member.id }}">
+                <input type="submit" value="View member" class='link'>
+            </form>
 
-        <form action="/members/{{member.id}}/delete" method='POST'>
-            <input type="submit" value="Delete member" class='link'>
-        </form>
+            <form action="/members/{{member.id}}/delete" method='POST'>
+                <input type="submit" value="Delete member" class='link'>
+            </form>
 
-        <form action="/members/{{member.id}}/edit" method='GET'>
-            <input type="submit" value="Edit member" class='link'>
-        </form>
+            <form action="/members/{{member.id}}/edit" method='GET'>
+                <input type="submit" value="Edit member" class='link'>
+            </form>
+        </div>
 
     </div>
     {% endfor %}

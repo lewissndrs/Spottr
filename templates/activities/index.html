@@ -10,10 +10,24 @@
     <div class='card_cont'>
     {% for activity in activities %}
     <div class='card'>
-        <p>name: {{ activity.name }} date: {{ activity.date }} {{ activity.time }} trainer: {{ activity.trainer.name }} activity id: {{ activity.id }}</p>
-        <form action="/activities/{{ activity.id }}/edit" class='push'>
-            <button>Edit Activity</button>
-        </form>
+        <p>Name: {{ activity.name }} </p>
+        <p> Date: {{ activity.date }} {{ activity.time }} </p>
+        <p> Trainer: {{ activity.trainer.name }} Activity ID: {{ activity.id }}</p>
+
+        <div class='button-box'>
+            <!-- view roster -->
+            <form action="/activities/{{ activity.id }}" class='push'>
+                <button>View Roster</button>
+            </form>
+            <!-- edit activity -->
+            <form action="/activities/{{ activity.id }}/edit" >
+                <button>Edit Activity</button>
+            </form>
+            <!-- delete activity -->
+            <form action="/activities/{{ activity.id }}/delete" method='POST'>
+                <button>Delete Activity</button>
+            </form>
+        </div>
     </div>
     {% endfor %}
     </div>

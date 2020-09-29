@@ -9,11 +9,24 @@
         <p>Trainer: <a href="/trainers/{{ activity.trainer.id }}">{{ activity.trainer.name }}</a> </p>
 
         <h3>class</h3>
+        
+        <div class='class-member'>
         {% for booking in bookings %}
-            <p>{{ booking.member.name }} {{ booking.note }}</p>
+        
+            <p>Name: {{ booking.member.name }}</p>
+            <p>Note: {{ booking.note }}</p>
+           
+            <div class='button-box'>
             <form action="/bookings/{{ booking.id }}/delete" method='POST'>
                 <button>Delete</button>
             </form>
+
+            <form action="/bookings/{{ booking.id }}/edit">
+                <button>Edit booking</button>
+            </form>
+            </div>
+            
         {% endfor %}
+        </div>
     </div>
 {% endblock %}
