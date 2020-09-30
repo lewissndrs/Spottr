@@ -7,7 +7,7 @@
 <div class='card_cont'>
     {% for activity in activities %}
     <div class='card'>
-        <p>{{ activity.name }} {{ activity.date }} {{ activity.time }}</p>
+        <p><strong>{{ activity.name }}</strong> {{ activity.date }} {{ activity.time }}</p>
         
         <div class='button-box'>
             <form action="/activities/{{ activity.id }}">

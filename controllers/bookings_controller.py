@@ -32,7 +32,6 @@ def create_booking():
     if booked < activity.capacity:
         booking_repository.save(booking)
         return redirect("/activities/"+activity_id)
-    message = 'Sorry, this class is fully booked'
     return render_template('bookings/error.html')
 
     

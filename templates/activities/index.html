@@ -10,10 +10,10 @@
     <div class='card_cont'>
     {% for activity in activities %}
     <div class='card'>
-        <p>Name: {{ activity.name }} </p>
-        <p> Date: {{ activity.date }} {{ activity.time }} </p>
-        <p> Trainer: {{ activity.trainer.name }} Activity ID: {{ activity.id }}</p>
-        <p>Capacity: {{ activity.capacity }}</p>
+        <p><strong>Name:</strong> {{ activity.name }} </p>
+        <p> <strong>Date:</strong> {{ activity.date }} {{ activity.time }} </p>
+        <p> <strong>Trainer:</strong> {{ activity.trainer.name }} Activity ID: {{ activity.id }}</p>
+        <p><strong>Capacity:</strong> {{ activity.capacity }}</p>
 
         <div class='button-box'>
             <!-- view roster -->

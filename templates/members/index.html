@@ -7,7 +7,7 @@
     <div class='card_cont'>
     {% for member in members %}
     <div class='card'>
-        <p>Name: {{ member.name }} Active: {{ member.active }}</p>
+        <p><strong>Name: </strong>{{ member.name }}<strong> Active: </strong>{{ member.active }}</p>
 
         <div class='button-box' class='push'>
             <form action="/members/{{ member.id }}">
