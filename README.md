@@ -3,6 +3,12 @@ Full stack project with Flask and PostgreSQL.
 
 Spottr is a web app to allow a gym's staff to track memberships, activities and trainers. The interface is designed to work cleanly on all sizes of screens.
 
+Desktop screen example
+![App seen on Desktop](https://github.com/lewissndrs/Spottr/blob/master/readme_images/Spottr_and_Slack___g21-classroom___CodeClan.jpg)
+        
+Mobile screen example
+![App seen on Mobile](https://github.com/lewissndrs/Spottr/blob/master/readme_images/Spottr.jpg)
+
 # Running Instructions
 In order to run the app, you will need to create and seed an SQL database called "spottr". From the project's root folder, in the terminal:
 
